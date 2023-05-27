@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 function FormularioSimple() {
   const [validated, setValidated] = useState(false);
@@ -10,9 +11,26 @@ function FormularioSimple() {
     if (!form.checkValidity()) {
       e.stopPropagation();
       setValidated(true);
-      console.log("los datos estan mal");
+      Swal.fire({
+        icon: "error",
+        iconColor: "#198754",
+        title: "Oops...Lo siento",
+        text: "Debes completar todos los campos.",
+        background: "#cbf1c4",
+        color: "#198754",
+        confirmButtonColor: "#198754",
+      });
     } else {
-      console.log("enviando datos");
+      Swal.fire({
+        icon: "success",
+        iconColor: "#198754",
+        title: "¡Muy bien!",
+        text: "Datos enviados.",
+        background: "#cbf1c4",
+        color: "#198754",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       form.reset();
       setValidated(false);
     }
