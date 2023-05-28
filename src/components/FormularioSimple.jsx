@@ -4,6 +4,10 @@ import Swal from "sweetalert2";
 
 function FormularioSimple() {
   const [validated, setValidated] = useState(false);
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [dni, setDni] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     const form = e.currentTarget;
@@ -47,6 +51,11 @@ function FormularioSimple() {
             maxLength={20}
             type="text"
             placeholder="Nombre"
+            name="nombre"
+            value={nombre}
+            onChange={(e) => {
+              setNombre(e.target.value);
+            }}
           />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
@@ -61,6 +70,11 @@ function FormularioSimple() {
             maxLength={20}
             type="text"
             placeholder="Apellido"
+            name="apellido"
+            value={apellido}
+            onChange={(e) => {
+              setApellido(e.target.value);
+            }}
           />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
@@ -76,6 +90,11 @@ function FormularioSimple() {
             minLength={7}
             maxLength={8}
             pattern="^\d{7,8}$"
+            name="dni"
+            value={dni}
+            onChange={(e) => {
+              setDni(e.target.value);
+            }}
           />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
@@ -88,6 +107,12 @@ function FormularioSimple() {
             required
             type="email"
             placeholder="Correo electrónico"
+            name="email"
+            value={email}
+            pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
           <Form.Control.Feedback>¡Excelente!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
