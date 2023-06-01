@@ -35,7 +35,10 @@ function FormularioSimple() {
         showConfirmButton: false,
         timer: 1500,
       });
-      form.reset();
+      setNombre("");
+      setApellido("");
+      setDni("");
+      setEmail("");
       setValidated(false);
     }
   };
